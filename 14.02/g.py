@@ -17,6 +17,27 @@ for _ in range(t):
     if abl_frost and abl_fire:
         if len(abl_frost) > len(abl_fire):
             twos = len(abl_fire) + 1
+            for i in range(twos):
+                if i%2 == 0:
+                    summ += 2 * abl_frost[-1]
+                    abl_frost.pop(-1)
+                else:
+                    summ += 2 * abl_fire[-1]
+                    abl_fire.pop(-1)
+            summ += sum(abl_frost)
+        elif len(abl_fire) > len(abl_frost):
+            twos = len(abl_frost) + 1
+            for i in range(twos):
+                if i % 2 == 0:
+                    summ += 2 * abl_fire[-1]
+                    abl_fire.pop(-1)
+                else:
+                    summ += 2 * abl_frost[-1]
+                    abl_frost.pop(-1)
+            summ += sum(abl_fire)
+        else:
+            summ = sum(damage) * 2 - min(damage)
+        ans.append(summ)
     elif abl_frost:
         ans.append(sum(abl_frost))
     elif abl_fire:
