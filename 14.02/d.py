@@ -1,3 +1,5 @@
+def ts(a, b):
+    return (a,b) if a < b else (b,a)
 n = int(input())
 a = []
 for i in range(n):
@@ -7,9 +9,8 @@ for i in range(n):
 lines = set()
 duplicates = set()
 for i in range(1,len(a)):
-    if (a[i-1], a[i]) in lines or (a[i], a[i-1]) in lines:
-        if ((a[i-1], a[i]) not in duplicates 
-        and (a[i], a[i-1]) not in duplicates):
-            duplicates.add((a[i-1], a[i]))
-    lines.add((a[i-1], a[i]))
+    if ts(a[i-1], a[i]) in lines:
+        duplicates.add(ts(a[i-1], a[i]))
+    else:
+        lines.add(ts(a[i-1], a[i]))
 print(len(duplicates))

@@ -1,14 +1,15 @@
 r, c = map(int, input().split(" "))
-a = []
+columns = [""] * c
 for i in range(r):
-    a.append(input())
-for i in range(1, r+1):
-    s = set()
-    for j in range(c):
-        b = str()
-        for k in range(r-i, r):
-            b += a[k][j]
-        s.add(b)
-    if len(s) == c:
-        print(r-i)
-        break
+    s = input()
+    for j in range(len(s)):
+        columns[j] = s[j] + columns[j]
+b = set(columns)
+ans = 0
+while len(b) == c:
+    d = set()
+    for s in b:
+        d.add(s[:-1])
+    ans += 1
+    b = d
+print(ans-1)
