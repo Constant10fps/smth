@@ -1,12 +1,20 @@
 t = int(input())
 ans = []
-for _ in range(t):
+for i in range(t):
     n = int(input())
-    a = list(map(int, input().split()))
-    s_a = set(a)
-    cur = []
-    for e in s_a:
-        if a.count(e) >= 3:
-            cur.append(e)
-    ans.append(cur[0] if cur else "-1")
+    a = sorted(list(map(int, input().split())))
+    cur = a[0]
+    c = 1
+    flag = True
+    for i in range(1,n):
+        if a[i] != cur:
+            c = 1
+            cur = a[i]
+        else: c += 1
+        if c == 3:
+            ans.append(cur)
+            flag = False
+            break
+    if flag:
+        ans.append("-1")
 print(*ans, sep="\n")
