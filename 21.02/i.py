@@ -11,5 +11,6 @@ for _ in range(t):
             ans.append("NO")
             flag = False
             break
-    if flag: ans.append("YES")
+    if flag:
+        ans.append("YES")
 print(*ans, sep="\n")
