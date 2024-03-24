@@ -1,3 +1,5 @@
+import sys
+input = sys.stdin.readline
 nums = list(map(int, input().split(" ")))
 min_idc = [i for i in range(5) if nums[i] == min(nums)]
 max_idc = [i for i in range(5) if nums[i] == max(nums)]
