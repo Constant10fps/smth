@@ -5,5 +5,5 @@ I am currently at #1 in the rating so yeah I'm cool
 
   * Weekly Uploads
   * 100% working solutions
-  * 0% of classmates have access to this project
+  * 3% of classmates have access to this project
   * :shipit:
